@@ -3,34 +3,6 @@
 
 using namespace std;
 
-
-
-class Component
-{
-public:
-	Component(string name);
-	void update();
-	void draw();
-
-private:
-	string name;
-};
-
-Component::Component(string name)
-{
-	this->name = name;
-}
-
-void Component::update()
-{
-	cout << name << " update" << endl;
-}
-
-void Component::draw()
-{
-	cout << name << " draw" << endl;
-}
-
 int main() {
 	string order;
 
@@ -40,10 +12,12 @@ int main() {
 		cin >> order;
 
 		if (order == "a") {
-
+			cout << "フレーム更新" << endl;
+			// updateとdrawを行う
 		}
 		else if (order == "add") {
-
+			cout << "オブジェクトを追加" << endl;
+			// オブジェクトを追加したのちupdateとdrawを行う
 		}
 		else if (order == "end") {
 			cout << "プログラム終了" << endl;
