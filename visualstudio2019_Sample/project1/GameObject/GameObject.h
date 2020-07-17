@@ -1,12 +1,16 @@
 #pragma once
 
-//#include "Component.h"
+#include "../ComponentManager/ComponentManager.h"
 #include <string>
 
 class GameObject{
 public:
 	GameObject(const std::string& name);
 
+	void update();
+	void draw();
+
 private:
 	std::string m_name;
+	ComponentManager m_ComponentManager;
 };
