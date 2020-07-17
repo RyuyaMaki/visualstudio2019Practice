@@ -5,7 +5,7 @@
 
 class GameObject{
 public:
-	GameObject(std::string& name);
+	GameObject(const std::string& name);
 
 private:
 	std::string m_name;

@@ -4,7 +4,7 @@
 
 class Component {
 public:
-	Component(std::string& name);
+	Component(const std::string& name);
 	void update();
 	void draw();
 

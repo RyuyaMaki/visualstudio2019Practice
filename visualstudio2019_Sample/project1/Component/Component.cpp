@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-Component::Component(std::string& name)
+Component::Component(const std::string& name)
 	:m_name{name}
 {	
 
