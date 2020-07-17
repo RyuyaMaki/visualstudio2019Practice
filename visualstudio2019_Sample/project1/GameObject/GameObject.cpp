@@ -1,5 +1,3 @@
-#pragma once
-
 #include "GameObject.h"
 
 GameObject::GameObject(const std::string& name)

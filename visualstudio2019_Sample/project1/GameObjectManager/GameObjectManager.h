@@ -3,6 +3,8 @@
 #include<list>
 #include<string>
 
+class GameObject;
+
 class GameObjectManager {
 public:
 
