@@ -2,8 +2,8 @@
 
 class GameObject{
 public:
-	GameObject(string name);
+	GameObject(std::string name);
 
 private:
-	string m_name;
+	std::string m_name;
 };

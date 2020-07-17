@@ -1,30 +1,28 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
-	string order;
+	std::string order;
 
-	cout << "プログラム開始" << endl;
+	std::cout << "プログラム開始" << std::endl;
 
 	while (true) {
-		cin >> order;
+		std::cin >> order;
 
 		if (order == "a") {
-			cout << "フレーム更新" << endl;
+			std::cout << "フレーム更新" << std::endl;
 			// updateとdrawを行う
 		}
 		else if (order == "add") {
-			cout << "オブジェクトを追加" << endl;
+			std::cout << "オブジェクトを追加" << std::endl;
 			// オブジェクトを追加したのちupdateとdrawを行う
 		}
 		else if (order == "end") {
-			cout << "プログラム終了" << endl;
+			std::cout << "プログラム終了" << std::endl;
 			break;
 		}
 		else {
-			cout << "入力ミスです。再入力してください。" << endl;
+			std::cout << "入力ミスです。再入力してください。" << std::endl;
 			continue;
 		}
 	}

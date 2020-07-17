@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject(string name)
+GameObject::GameObject(std::string name)
 	:m_name{name}
 {
 }
