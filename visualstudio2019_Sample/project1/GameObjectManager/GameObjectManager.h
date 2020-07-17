@@ -10,8 +10,9 @@ public:
 
 	GameObjectManager() = default;
 
-	void add(const std::string& name);
-
+	void add(GameObject* gameObject);
+	void update();
+	void draw();
 private:
 	std::list<GameObject*> m_GameObjects;
 };
