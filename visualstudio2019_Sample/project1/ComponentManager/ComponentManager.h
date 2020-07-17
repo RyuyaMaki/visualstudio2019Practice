@@ -1,17 +1,16 @@
 #pragma once
 
 #include <list>
+#include <memory>
 
 class Component;
 
 class ComponentManager {
 public:
-	ComponentManager() = default;
-
-	void add(Component* component);
-	void update();
-	void draw();
+	static void add(std::shared_ptr<Component> component);
+	static void update();
+	static void draw();
 
 private:
-	std::list<Component*> m_Components;
+	static std::list<std::shared_ptr<Component>> m_components;
 };
