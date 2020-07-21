@@ -4,8 +4,8 @@
 
 class GameObject{
 public:
-	const GameObject(const std::string& name);
-	const std::string& getName();
+	GameObject(const std::string& name);
+	const std::string& getName() const;
 
 private:
 	std::string m_name;
