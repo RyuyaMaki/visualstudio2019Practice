@@ -8,5 +8,5 @@ public:
 	const std::string& getName();
 
 private:
-	std::string m_name;
+	const std::string m_name;
 };
