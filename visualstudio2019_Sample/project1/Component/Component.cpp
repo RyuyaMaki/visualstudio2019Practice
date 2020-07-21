@@ -3,8 +3,7 @@
 #include <iostream>
 
 Component::Component(const std::string& name)
-	:m_name{name}
-{
+	:m_name{name}{
 }
 
 void Component::update(){
