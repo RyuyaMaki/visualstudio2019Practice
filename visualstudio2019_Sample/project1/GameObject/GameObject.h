@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../ComponentManager/ComponentManager.h"
 #include <string>
 
 class GameObject{
