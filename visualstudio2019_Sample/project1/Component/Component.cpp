@@ -2,14 +2,14 @@
 
 #include <iostream>
 
-Component::Component(const std::string& name)
-	:m_name{name}{
-}
-
 void Component::update(){
-	std::cout << m_name << " update" << std::endl;
+	std::cout << m_gameObject->getName() << " update" << std::endl;
 }
 
 void Component::draw(){
-	std::cout << m_name << " draw" << std::endl;
+	std::cout << m_gameObject->getName() << " draw" << std::endl;
+}
+
+void Component::setGameObject(std::shared_ptr<GameObject> gameObject){
+	m_gameObject = gameObject;
 }
