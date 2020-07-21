@@ -5,9 +5,9 @@ GameObject::GameObject(const std::string& name)
 }
 
 void GameObject::update(){
-	m_ComponentManager.update();
+	ComponentManager::update();
 }
 
 void GameObject::draw(){
-	m_ComponentManager.draw();
+	ComponentManager::draw();
 }

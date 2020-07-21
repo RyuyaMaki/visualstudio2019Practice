@@ -12,5 +12,4 @@ public:
 
 private:
 	std::string m_name;
-	ComponentManager m_ComponentManager;
 };
