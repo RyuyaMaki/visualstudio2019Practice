@@ -6,10 +6,10 @@ class GameObject;
 
 class Component {
 public:
-	void update();
-	void draw();
-	void setGameObject(const std::shared_ptr<GameObject>& gameObject);
+	virtual void update() = 0;
+	virtual void draw() = 0;
+	virtual void setGameObject(const std::weak_ptr<GameObject>& gameObject) = 0;
 
-private:
-	std::shared_ptr<GameObject> m_gameObject;
+protected:
+	std::weak_ptr<GameObject> m_gameObject;
 };
