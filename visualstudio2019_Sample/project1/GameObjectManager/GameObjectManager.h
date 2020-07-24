@@ -7,7 +7,7 @@ class GameObject;
 
 class GameObjectManager {
 public:
-	void addGameObject(std::shared_ptr<GameObject>& gameObject);
+	void addGameObject(const std::shared_ptr<GameObject>& gameObject);
 
 private:
 	std::list<std::shared_ptr<GameObject>> m_gameObjects;

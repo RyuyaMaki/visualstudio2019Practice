@@ -11,6 +11,6 @@ void Component::draw(){
 	std::cout << m_gameObject->getName() << " draw" << std::endl;
 }
 
-void Component::setGameObject(std::shared_ptr<GameObject>& gameObject){
+void Component::setGameObject(const std::shared_ptr<GameObject>& gameObject){
 	m_gameObject = gameObject;
 }
