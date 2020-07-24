@@ -11,6 +11,3 @@ void TestOutPut::draw(){
 	std::cout << m_gameObject.lock()->getName() << " draw" << std::endl;
 }
 
-void TestOutPut::setGameObject(const std::weak_ptr<GameObject>& gameObject){
-	m_gameObject = gameObject;
-}

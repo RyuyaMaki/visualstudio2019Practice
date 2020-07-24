@@ -7,6 +7,4 @@ public:
 	void update() override;
 
 	void draw() override;
-
-	void setGameObject(const std::weak_ptr<GameObject>& gameObject) override;
 };
