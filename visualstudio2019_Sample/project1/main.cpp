@@ -20,12 +20,7 @@ int main() {
 	while (true) {
 		std::cin >> order;
 
-		if (order == "a") {
-			std::cout << "フレーム更新" << std::endl;
-			ComponentManager::update();
-			ComponentManager::draw();
-		}
-		else if (order == "add") {
+		if (order == "add") {
 			std::cout << "オブジェクトを追加します。\n" << "名前を入力してください" << std::endl;
 			std::string gameObjectName;
 			std::cin >> gameObjectName;
@@ -42,8 +37,9 @@ int main() {
 			break;
 		}
 		else {
-			std::cout << "入力ミスです。再入力してください。" << std::endl;
-			continue;
+			std::cout << "フレーム更新" << std::endl;
+			ComponentManager::update();
+			ComponentManager::draw();
 		}
 	}
 }
