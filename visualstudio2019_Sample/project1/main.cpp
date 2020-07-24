@@ -1,16 +1,20 @@
 #include <iostream>
 #include <string>
+#include <memory>
 
 #include "GameObjectManager/GameObjectManager.h"
+#include "ComponentManager/ComponentManager.h"
 #include "GameObject/GameObject.h"
 
 int main() {
 	std::string order;
-	GameObjectManager m_gameobjectmaneger;
+	GameObjectManager gameObjectManager;
 
-	m_gameobjectmaneger.add(new GameObject("GameObjectA"));
-	m_gameobjectmaneger.add(new GameObject("GameObjectB"));
-
+	// GameObjectAの生成
+	auto gameObject = std::make_shared<GameObject>("GameObjectA");
+	gameObjectManager.addGameObject(gameObject);
+	ComponentManager::add(gameObject);
+	
 	std::cout << "プログラム開始" << std::endl;
 
 	while (true) {
@@ -18,9 +22,8 @@ int main() {
 
 		if (order == "a") {
 			std::cout << "フレーム更新" << std::endl;
-			// updateとdrawを行う
-			m_gameobjectmaneger.update();
-			m_gameobjectmaneger.draw();
+			ComponentManager::update();
+			ComponentManager::draw();
 		}
 		else if (order == "add") {
 			std::cout << "オブジェクトを追加します。\n" << "名前を入力してください" << std::endl;
@@ -28,9 +31,11 @@ int main() {
 			std::cin >> gameObjectName;
 
 			// オブジェクトを追加したのちupdateとdrawを行う
-			m_gameobjectmaneger.add(new GameObject(gameObjectName));
-			m_gameobjectmaneger.update();
-			m_gameobjectmaneger.draw();
+			auto gameObject = std::make_shared<GameObject>(gameObjectName);
+			gameObjectManager.addGameObject(gameObject);
+			ComponentManager::add(gameObject);
+			ComponentManager::update();
+			ComponentManager::draw();
 		}
 		else if (order == "end") {
 			std::cout << "プログラム終了" << std::endl;

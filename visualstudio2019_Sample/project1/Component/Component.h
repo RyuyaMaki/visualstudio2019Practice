@@ -1,7 +1,9 @@
 #pragma once
 
 #include <string>
-#include "../GameObject/GameObject.h"
+#include <memory>
+
+class GameObject;
 
 class Component {
 public:
@@ -10,6 +12,6 @@ public:
 	void setGameObject(std::shared_ptr<GameObject> gameObject);
 
 private:
-	std::string m_name;
+	//std::string m_name;
 	std::shared_ptr<GameObject> m_gameObject;
 };
