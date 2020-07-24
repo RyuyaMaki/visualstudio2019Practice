@@ -1,21 +1,9 @@
 #include "GameObjectManager.h"
 #include "../GameObject/GameObject.h"
 
-void GameObjectManager::add(GameObject* gameObject)
+std::shared_ptr<GameObject> GameObjectManager::addGameObject(std::shared_ptr<GameObject> gameObject)
 {
-	m_GameObjects.push_back(gameObject);
-}
+	m_gameObjects.push_back(gameObject);
 
-void GameObjectManager::update()
-{
-	for (auto gameObject : m_GameObjects) {
-		gameObject->update();
-	}
-}
-
-void GameObjectManager::draw()
-{
-	for (auto gameObject : m_GameObjects) {
-		gameObject->draw();
-	}
+	return(gameObject);
 }

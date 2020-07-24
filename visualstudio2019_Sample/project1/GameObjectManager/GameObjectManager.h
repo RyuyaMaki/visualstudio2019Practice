@@ -1,6 +1,7 @@
 #pragma once
 
 #include<list>
+#include <memory>
 #include<string>
 
 class GameObject;
@@ -8,11 +9,8 @@ class GameObject;
 class GameObjectManager {
 public:
 
-	GameObjectManager() = default;
+	std::shared_ptr<GameObject> addGameObject(std::shared_ptr<GameObject> gameObject);
 
-	void add(GameObject* gameObject);
-	void update();
-	void draw();
 private:
-	std::list<GameObject*> m_GameObjects;
+	std::list<std::shared_ptr<GameObject>> m_gameObjects;
 };

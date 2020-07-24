@@ -4,10 +4,11 @@
 #include <memory>
 
 class Component;
+class GameObject;
 
 class ComponentManager {
 public:
-	static void add(std::shared_ptr<Component> component);
+	static void add(std::shared_ptr<GameObject> gameObject);
 	static void update();
 	static void draw();
 
