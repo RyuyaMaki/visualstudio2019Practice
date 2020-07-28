@@ -20,5 +20,5 @@ std::shared_ptr<GameObject> GameObjectManager::findGameObejct(const std::string&
 
 void GameObjectManager::deleteGameObject()
 {
-	std::remove_if(m_gameObjects.begin(), m_gameObjects.end(), [](const auto& node) {return node->isDead(); });
+	m_gameObjects.remove_if([](const auto& node) {return node->isDead();});
 }

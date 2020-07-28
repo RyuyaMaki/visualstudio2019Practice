@@ -4,8 +4,6 @@
 #include "../DestroyObject/DestroyObject.h"
 #include "../GameObject/GameObject.h"
 
-#include <algorithm>
-
 std::list<std::shared_ptr<Component>> ComponentManager::m_components;
 
 void ComponentManager::addTestOutPutComponent(std::shared_ptr<GameObject>& gameObject){
@@ -37,7 +35,7 @@ void ComponentManager::draw(){
 
 void ComponentManager::deleteComponent()
 {
-	std::remove_if(m_components.begin(), m_components.end(), [](const auto& node) {return node->isDead();});
+	m_components.remove_if([](const auto& node) {return node->isDead();});
 	
 	// ã‚Æ“¯“™‚Ìˆ—
 	/*std::list<std::list<std::shared_ptr<Component>>::iterator> tempItrList;
