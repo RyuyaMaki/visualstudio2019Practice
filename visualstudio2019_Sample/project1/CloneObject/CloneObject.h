@@ -2,8 +2,9 @@
 
 #include "../Component/Component.h"
 
-class TestOutPut : public Component{
+class CloneObject : public Component{
 public:
+	CloneObject();
 	void update() override;
 	void draw() override;
 };

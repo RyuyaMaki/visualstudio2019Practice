@@ -2,13 +2,16 @@
 
 #include <list>
 #include <memory> // ポインタスマートポインタを使うためのインクルード
+#include <string>
 
 class GameObject;
 
 class GameObjectManager {
 public:
-	void addGameObject(const std::shared_ptr<GameObject>& gameObject);
+	static void addGameObject(const std::shared_ptr<GameObject>& gameObject);
+	static std::shared_ptr<GameObject> findGameObejct(const std::string& gameObjectName);
+	static void deleteGameObject();
 
 private:
-	std::list<std::shared_ptr<GameObject>> m_gameObjects;
+	static std::list<std::shared_ptr<GameObject>> m_gameObjects;
 };

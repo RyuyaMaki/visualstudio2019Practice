@@ -10,4 +10,3 @@ void TestOutPut::update(){
 void TestOutPut::draw(){
 	std::cout << m_gameObject.lock()->getName() << " draw" << std::endl;
 }
-

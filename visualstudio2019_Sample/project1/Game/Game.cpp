@@ -8,12 +8,12 @@
 void Game::run()
 {
 	std::string order;
-	GameObjectManager gameObjectManager;
 
 	// GameObjectAの生成
 	auto gameObject = std::make_shared<GameObject>("GameObjectA");
-	gameObjectManager.addGameObject(gameObject);
-	ComponentManager::add(gameObject);
+	GameObjectManager::addGameObject(gameObject);
+	ComponentManager::addTestOutPutComponent(gameObject);
+	ComponentManager::addDestroyObjectComponent(gameObject, "GameObjectA");
 
 	std::cout << "プログラム開始" << std::endl;
 
@@ -27,16 +27,26 @@ void Game::run()
 
 			// 新しいオブジェクトを追加したのちupdateとdrawを行う
 			auto gameObject = std::make_shared<GameObject>(gameObjectName);
-			gameObjectManager.addGameObject(gameObject);
-			ComponentManager::add(gameObject);
+			GameObjectManager::addGameObject(gameObject);
+			ComponentManager::addTestOutPutComponent(gameObject);
 		}
 		else if (order == "end") {
 			std::cout << "プログラム終了" << std::endl;
 			break;
 		}
+		
+		//else if (order == "clone") {
+		//	std::cout << "オブジェクトを複製します。\n" << "複製する数を入力してください" << std::endl;
+		//	int cloneCount;
+		//	std::cin >> cloneCount;
+		//	// CloneObject
+		//}
 
 		std::cout << "フレーム更新" << std::endl;
 		ComponentManager::update();
 		ComponentManager::draw();
+
+		GameObjectManager::deleteGameObject();
+		ComponentManager::deleteComponent();
 	}
 }

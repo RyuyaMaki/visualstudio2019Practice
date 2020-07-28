@@ -141,19 +141,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CloneObject\CloneObject.cpp" />
     <ClCompile Include="ComponentManager\ComponentManager.cpp" />
     <ClCompile Include="Component\Component.cpp" />
+    <ClCompile Include="DestroyObject\DestroyObject.cpp" />
     <ClCompile Include="GameObjectManager\GameObjectManager.cpp" />
     <ClCompile Include="GameObject\GameObject.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestOutPut\TestOutPut.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CloneObject\CloneObject.h" />
     <ClInclude Include="ComponentManager\ComponentManager.h" />
     <ClInclude Include="Component\Component.h" />
+    <ClInclude Include="DestroyObject\DestroyObject.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameObjectManager\GameObjectManager.h" />
+    <ClInclude Include="TestOutPut\TestOutPut.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
