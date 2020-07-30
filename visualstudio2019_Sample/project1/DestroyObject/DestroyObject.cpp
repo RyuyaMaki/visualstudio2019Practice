@@ -2,7 +2,7 @@
 #include "../GameObjectManager/GameObjectManager.h"
 #include "../GameObject/GameObject.h"
 
-DestroyObject::DestroyObject(const std::string gameObjectName)
+DestroyObject::DestroyObject(const std::string& gameObjectName)
 	:m_gameObjectName{ gameObjectName }
 {
 }
@@ -10,7 +10,9 @@ DestroyObject::DestroyObject(const std::string gameObjectName)
 void DestroyObject::update()
 {
 	std::shared_ptr<GameObject> gameObject = GameObjectManager::findGameObejct(m_gameObjectName);
-	gameObject->destroy();
+	if (gameObject != NULL) {
+		gameObject->destroy();
+	}
 }
 
 void DestroyObject::draw()

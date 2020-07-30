@@ -37,7 +37,7 @@ void ComponentManager::deleteComponent()
 {
 	m_components.remove_if([](const auto& node) {return node->isDead();});
 	
-	// ã‚Æ“¯“™‚Ìˆ—
+	//ã‚Æ“¯“™‚Ìˆ—
 	/*std::list<std::list<std::shared_ptr<Component>>::iterator> tempItrList;
 
 	for (auto itr = m_components.begin(); itr != m_components.end(); ++itr) {
