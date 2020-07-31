@@ -10,7 +10,7 @@ DestroyObject::DestroyObject(const std::string& gameObjectName)
 void DestroyObject::update()
 {
 	std::shared_ptr<GameObject> gameObject = GameObjectManager::findGameObejct(m_gameObjectName);
-	if (gameObject != NULL) {
+	if (gameObject != nullptr) {
 		gameObject->destroy();
 	}
 }

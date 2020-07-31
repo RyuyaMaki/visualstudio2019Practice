@@ -15,7 +15,7 @@ std::shared_ptr<GameObject> GameObjectManager::findGameObejct(const std::string&
 			return gameObject;
 		}
 	}
-	return NULL;
+	return nullptr;
 }
 
 void GameObjectManager::deleteGameObject()
