@@ -11,9 +11,10 @@ void Game::run()
 
 	// GameObjectAの生成
 	auto gameObject = std::make_shared<GameObject>("GameObjectA");
-	GameObjectManager::addGameObject(gameObject);
-	ComponentManager::addTestOutPutComponent(gameObject);
-	ComponentManager::addDestroyObjectComponent(gameObject, "GameObjectA");
+	GameObjectManager::addGameObject			(gameObject);
+	ComponentManager::addTestOutPutComponent	(gameObject);
+	//ComponentManager::addDestroyObjectComponent	(gameObject, "GameObjectA");
+	ComponentManager::addCloneObjectComponent	(gameObject, 3);
 
 	std::cout << "プログラム開始" << std::endl;
 
@@ -43,6 +44,7 @@ void Game::run()
 		//}
 
 		std::cout << "フレーム更新" << std::endl;
+		ComponentManager::updateComponentList();
 		ComponentManager::update();
 		ComponentManager::draw();
 

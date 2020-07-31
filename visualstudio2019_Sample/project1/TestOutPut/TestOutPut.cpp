@@ -11,7 +11,8 @@ void TestOutPut::draw(){
 	std::cout << m_gameObject.lock()->getName() << " draw" << std::endl;
 }
 
-std::shared_ptr<Component>& TestOutPut::createClone()
+std::shared_ptr<Component> TestOutPut::createClone()
 {
-	// TODO: return ステートメントをここに挿入します
+	std::shared_ptr<Component> me = std::make_shared<TestOutPut>();
+	return me;
 }

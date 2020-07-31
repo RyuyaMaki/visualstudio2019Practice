@@ -19,7 +19,8 @@ void DestroyObject::draw()
 {
 }
 
-std::shared_ptr<Component>& DestroyObject::createClone()
+std::shared_ptr<Component> DestroyObject::createClone()
 {
-	// TODO: return ステートメントをここに挿入します
+	std::shared_ptr<Component> me = std::make_shared<DestroyObject>(m_gameObjectName);
+	return me;
 }
