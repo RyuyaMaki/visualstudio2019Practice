@@ -10,3 +10,8 @@ void TestOutPut::update(){
 void TestOutPut::draw(){
 	std::cout << m_gameObject.lock()->getName() << " draw" << std::endl;
 }
+
+std::shared_ptr<Component>& TestOutPut::createClone()
+{
+	// TODO: return ステートメントをここに挿入します
+}

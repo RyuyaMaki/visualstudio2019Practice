@@ -9,6 +9,7 @@ public:
 	DestroyObject(const std::string& gameObjectName);
 	void update() override;
 	void draw() override;
+	std::shared_ptr<Component>& createClone() override;
 
 private:
 	std::string m_gameObjectName;

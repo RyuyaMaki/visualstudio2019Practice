@@ -3,10 +3,11 @@
 #include "../TestOutPut/TestOutPut.h"
 #include "../DestroyObject/DestroyObject.h"
 #include "../GameObject/GameObject.h"
+#include "../CloneObject/CloneObject.h"
 
 std::list<std::shared_ptr<Component>> ComponentManager::m_components;
 
-void ComponentManager::addTestOutPutComponent(std::shared_ptr<GameObject>& gameObject){
+void ComponentManager::addTestOutPutComponent(const std::shared_ptr<GameObject>& gameObject){
 	auto component = std::make_shared<TestOutPut>();
 	component->setGameObject(gameObject);
 	m_components.push_back(component);
@@ -16,6 +17,14 @@ void ComponentManager::addTestOutPutComponent(std::shared_ptr<GameObject>& gameO
 void ComponentManager::addDestroyObjectComponent(const std::shared_ptr<GameObject>& gameObject, const std::string& objectName)
 {
 	auto component = std::make_shared<DestroyObject>(objectName);
+	component->setGameObject(gameObject);
+	m_components.push_back(component);
+	gameObject->addComponent(component);
+}
+
+void ComponentManager::addCloneObjectComponent(int cloneNum, const std::shared_ptr<GameObject>& gameObject)
+{
+	auto component = std::make_shared<CloneObject>(cloneNum, gameObject);
 	component->setGameObject(gameObject);
 	m_components.push_back(component);
 	gameObject->addComponent(component);
@@ -49,4 +58,11 @@ void ComponentManager::deleteComponent()
 	for (auto tempItr : tempItrList) {
 		m_components.erase(tempItr);
 	}*/
+}
+
+void ComponentManager::addComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject)
+{
+	for (const auto& component: components) {
+		m_components.push_back(component);
+	}
 }

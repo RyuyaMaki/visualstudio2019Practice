@@ -18,3 +18,8 @@ void DestroyObject::update()
 void DestroyObject::draw()
 {
 }
+
+std::shared_ptr<Component>& DestroyObject::createClone()
+{
+	// TODO: return ステートメントをここに挿入します
+}
