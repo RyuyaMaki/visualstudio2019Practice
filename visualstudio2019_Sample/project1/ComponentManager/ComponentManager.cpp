@@ -39,7 +39,7 @@ void ComponentManager::update(){
 
 void ComponentManager::updateComponentList()
 {
-	for (auto component: m_addComponentsToLater) {
+	for (const auto& component: m_addComponentsToLater) {
 		m_components.push_back(component);
 	}
 

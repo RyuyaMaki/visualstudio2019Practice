@@ -29,7 +29,7 @@ bool GameObject::isDead() const
 	return m_isDead;
 }
 
-std::list<std::shared_ptr<Component>> GameObject::getComponents()
+const std::list<std::shared_ptr<Component>>& GameObject::getComponents()
 {
 	return m_myComponents;
 }

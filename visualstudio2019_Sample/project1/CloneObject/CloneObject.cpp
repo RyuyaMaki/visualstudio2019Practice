@@ -18,9 +18,8 @@ void CloneObject::update()
 
 	auto afterCloneGameObject = std::make_shared<GameObject>(m_gameObject.lock()->getName());
 
-	std::list<std::shared_ptr<Component>> components = m_gameObject.lock()->getComponents();
 	std::list<std::shared_ptr<Component>> afterCloneComponents;
-	for (const auto& component: components) {
+	for (const auto& component: m_gameObject.lock()->getComponents()) {
 		afterCloneComponents.push_back(component->createClone());
 	}
 
@@ -33,6 +32,5 @@ void CloneObject::draw()
 }
 
 std::shared_ptr<Component> CloneObject::createClone() {
-	std::shared_ptr<Component> me = std::make_shared<CloneObject>(m_cloneNumber);
-	return me;
+	return std::make_shared<CloneObject>(m_cloneNumber);
 }

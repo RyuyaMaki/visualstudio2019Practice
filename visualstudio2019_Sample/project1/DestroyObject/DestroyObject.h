@@ -6,7 +6,7 @@
 
 class DestroyObject : public Component{
 public:
-	DestroyObject(const std::string& gameObjectName);
+	explicit DestroyObject(const std::string& gameObjectName);
 	void update() override;
 	void draw() override;
 	std::shared_ptr<Component> createClone() override;

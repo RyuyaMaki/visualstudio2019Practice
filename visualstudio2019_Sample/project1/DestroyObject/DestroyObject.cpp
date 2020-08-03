@@ -21,6 +21,5 @@ void DestroyObject::draw()
 
 std::shared_ptr<Component> DestroyObject::createClone()
 {
-	std::shared_ptr<Component> me = std::make_shared<DestroyObject>(m_gameObjectName);
-	return me;
+	return std::make_shared<DestroyObject>(m_gameObjectName);
 }

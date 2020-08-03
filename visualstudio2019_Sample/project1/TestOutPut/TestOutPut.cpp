@@ -13,6 +13,5 @@ void TestOutPut::draw(){
 
 std::shared_ptr<Component> TestOutPut::createClone()
 {
-	std::shared_ptr<Component> me = std::make_shared<TestOutPut>();
-	return me;
+	return std::make_shared<TestOutPut>();
 }
