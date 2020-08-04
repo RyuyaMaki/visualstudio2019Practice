@@ -13,7 +13,7 @@ public:
 	void destroy();
 	const std::string& getName() const;
 	bool isDead() const;
-	const std::list<std::shared_ptr<Component>>& getComponents();
+	const std::list<std::shared_ptr<Component>>& getComponents() const;
 
 private:
 	std::list <std::shared_ptr<Component>> m_myComponents;
