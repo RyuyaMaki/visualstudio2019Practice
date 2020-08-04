@@ -5,6 +5,10 @@
 #include "../GameObject/GameObject.h"
 #include "Game.h"
 
+#include "../CloneObject/CloneObject.h"
+#include "../DestroyObject/DestroyObject.h"
+#include "../TestOutPut/TestOutPut.h"
+
 void Game::run()
 {
 	std::string order;
@@ -12,9 +16,9 @@ void Game::run()
 	// GameObjectAの生成
 	auto gameObject = std::make_shared<GameObject>("GameObjectA");
 	GameObjectManager::addGameObject			(gameObject);
-	ComponentManager::addTestOutPutComponent	(gameObject);
-	//ComponentManager::addDestroyObjectComponent	(gameObject, "GameObjectA");
-	ComponentManager::addCloneObjectComponent	(gameObject, 3);
+	ComponentManager::addComponent<TestOutPut>(gameObject);
+	ComponentManager::addComponent<CloneObject>(gameObject, 3);
+	ComponentManager::addComponent<DestroyObject>(gameObject, "GameObejctA");
 
 	std::cout << "プログラム開始" << std::endl;
 
@@ -29,7 +33,7 @@ void Game::run()
 			// 新しいオブジェクトを追加したのちupdateとdrawを行う
 			auto gameObject = std::make_shared<GameObject>(gameObjectName);
 			GameObjectManager::addGameObject(gameObject);
-			ComponentManager::addTestOutPutComponent(gameObject);
+			ComponentManager::addComponent<TestOutPut>(gameObject);
 		}
 		else if (order == "end") {
 			std::cout << "プログラム終了" << std::endl;

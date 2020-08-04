@@ -1,35 +1,10 @@
 #include "ComponentManager.h"
-#include "../Component/Component.h"
 #include "../TestOutPut/TestOutPut.h"
 #include "../DestroyObject/DestroyObject.h"
-#include "../GameObject/GameObject.h"
 #include "../CloneObject/CloneObject.h"
 
 std::list<std::shared_ptr<Component>> ComponentManager::m_components;
 std::list<std::shared_ptr<Component>> ComponentManager::m_addComponentsToLater;
-
-void ComponentManager::addTestOutPutComponent(const std::shared_ptr<GameObject>& gameObject){
-	auto component = std::make_shared<TestOutPut>();
-	component->setGameObject(gameObject);
-	m_components.push_back(component);
-	gameObject->addComponent(component);
-}
-
-void ComponentManager::addDestroyObjectComponent(const std::shared_ptr<GameObject>& gameObject, const std::string& objectName)
-{
-	auto component = std::make_shared<DestroyObject>(objectName);
-	component->setGameObject(gameObject);
-	m_components.push_back(component);
-	gameObject->addComponent(component);
-}
-
-void ComponentManager::addCloneObjectComponent(const std::shared_ptr<GameObject>& gameObject, int cloneNum)
-{
-	auto component = std::make_shared<CloneObject>(cloneNum);
-	component->setGameObject(gameObject);
-	m_components.push_back(component);
-	gameObject->addComponent(component);
-}
 
 void ComponentManager::update(){
 	for (const auto& component : m_components) {
@@ -37,8 +12,7 @@ void ComponentManager::update(){
 	}
 }
 
-void ComponentManager::updateComponentList()
-{
+void ComponentManager::updateComponentList(){
 	for (const auto& component: m_addComponentsToLater) {
 		m_components.push_back(component);
 	}
@@ -52,8 +26,7 @@ void ComponentManager::draw(){
 	}
 }
 
-void ComponentManager::deleteComponent()
-{
+void ComponentManager::deleteComponent(){
 	m_components.remove_if([](const auto& node) {return node->isDead();});
 	
 	//è„Ç∆ìØìôÇÃèàóù
@@ -70,8 +43,7 @@ void ComponentManager::deleteComponent()
 	}*/
 }
 
-void ComponentManager::addComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject)
-{
+void ComponentManager::addComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject){
 	for (const auto& component: components) {
 		component->setGameObject(gameObject);
 		m_addComponentsToLater.push_back(component);

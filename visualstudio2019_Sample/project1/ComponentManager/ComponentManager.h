@@ -4,14 +4,19 @@
 #include <memory>
 #include <string>
 
-class Component;
-class GameObject;
+#include "../Component/Component.h"
+#include "../GameObject/GameObject.h"
 
 class ComponentManager {
 public:
-	static void addTestOutPutComponent(const std::shared_ptr<GameObject>& gameObject);
-	static void addDestroyObjectComponent(const std::shared_ptr<GameObject>& gameObject, const std::string& objectName);
-	static void addCloneObjectComponent(const std::shared_ptr<GameObject>& gameObject, int cloneNum);
+	// 作るコンポーネントの型情報といくつかの引数でコンポーネントを作る。
+	template <class Component, class... Args>
+	static void addComponent(const std::shared_ptr<GameObject>& gameObject, const Args&... args){
+		auto component = std::make_shared<Component>(args...);
+		component->setGameObject(gameObject);
+		m_components.push_back(component);
+		gameObject->addComponent(component);
+	}
 
 	static void update();
 	static void updateComponentList();
