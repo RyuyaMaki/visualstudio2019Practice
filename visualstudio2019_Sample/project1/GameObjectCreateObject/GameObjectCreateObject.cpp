@@ -8,7 +8,7 @@ GameObjectCreateObject::GameObjectCreateObject(const std::string& name)
 {
 	auto gameObject = std::make_shared<GameObject>("name");
 	GameObjectManager::addGameObject(gameObject);
-	ComponentManager::addComponent<TestOutPut>(gameObject);
+	ComponentManager::createComponent<TestOutPut>(gameObject);
 }
 
 std::shared_ptr<Component> GameObjectCreateObject::createClone()

@@ -23,7 +23,7 @@ void CloneObject::update()
 		afterCloneComponents.push_back(component->createClone());
 	}
 
-	ComponentManager::createComponents(afterCloneComponents, afterCloneGameObject);
+	ComponentManager::addComponents(afterCloneComponents, afterCloneGameObject);
 	GameObjectManager::addGameObject(afterCloneGameObject);
 }
 

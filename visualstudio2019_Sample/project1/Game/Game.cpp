@@ -18,11 +18,11 @@ void Game::run()
 	// GameObjectAの生成
 	auto gameObject = std::make_shared<GameObject>("GameObjectA");
 	GameObjectManager::addGameObject(gameObject);
-	ComponentManager::addComponent<TestOutPut>(gameObject);
-	ComponentManager::addComponent<CloneObject>(gameObject, 3);
+	ComponentManager::createComponent<TestOutPut>(gameObject);
+	ComponentManager::createComponent<CloneObject>(gameObject, 3);
 	// ComponentManager::addComponent<DestroyObject>(gameObject, "GameObejctA");
-	ComponentManager::addComponent<ProgramEndObject>(gameObject);
-	ComponentManager::addComponent<GameObjectCreateObject>(gameObject, "GameObjectB");
+	ComponentManager::createComponent<ProgramEndObject>(gameObject);
+	ComponentManager::createComponent<GameObjectCreateObject>(gameObject, "GameObjectB");
 
 	std::cout << "プログラム開始" << std::endl;
 
@@ -37,7 +37,7 @@ void Game::run()
 			// 新しいオブジェクトを追加したのちupdateとdrawを行う
 			auto gameObject = std::make_shared<GameObject>(gameObjectName);
 			GameObjectManager::addGameObject(gameObject);
-			ComponentManager::addComponent<TestOutPut>(gameObject);
+			ComponentManager::createComponent<TestOutPut>(gameObject);
 		}
 		else if (order == "end") {
 			std::cout << "プログラム終了" << std::endl;

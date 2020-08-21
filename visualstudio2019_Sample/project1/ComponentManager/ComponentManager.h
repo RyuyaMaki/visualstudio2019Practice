@@ -11,7 +11,7 @@ class ComponentManager {
 public:
 	// 作るコンポーネントの型情報といくつかの引数でコンポーネントを作る。
 	template <class Component, class... Args>
-	static void addComponent(const std::shared_ptr<GameObject>& gameObject, const Args&... args){
+	static void createComponent(const std::shared_ptr<GameObject>& gameObject, const Args&... args){
 		auto component = std::make_shared<Component>(args...);
 		component->setGameObject(gameObject);
 		m_components.push_back(component);
@@ -22,7 +22,7 @@ public:
 	static void updateComponentList();
 	static void draw();
 	static void deleteComponent();
-	static void createComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject);
+	static void addComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject);
 
 private:
 	static std::list<std::shared_ptr<Component>> m_components;

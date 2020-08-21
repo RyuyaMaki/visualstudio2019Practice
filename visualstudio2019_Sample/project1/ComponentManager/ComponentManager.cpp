@@ -43,7 +43,7 @@ void ComponentManager::deleteComponent(){
 	}*/
 }
 
-void ComponentManager::createComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject){
+void ComponentManager::addComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject){
 	for (const auto& component: components) {
 		component->setGameObject(gameObject);
 		m_addComponentsToLater.push_back(component);
