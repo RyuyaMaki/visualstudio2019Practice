@@ -8,6 +8,8 @@
 #include "../CloneObject/CloneObject.h"
 #include "../DestroyObject/DestroyObject.h"
 #include "../TestOutPut/TestOutPut.h"
+#include "../GameObjectCreateObject/GameObjectCreateObject.h"
+#include "../ProgramEndObject/ProgramEndObject.h"
 
 void Game::run()
 {
@@ -15,10 +17,12 @@ void Game::run()
 
 	// GameObjectAの生成
 	auto gameObject = std::make_shared<GameObject>("GameObjectA");
-	GameObjectManager::addGameObject			(gameObject);
+	GameObjectManager::addGameObject(gameObject);
 	ComponentManager::addComponent<TestOutPut>(gameObject);
 	ComponentManager::addComponent<CloneObject>(gameObject, 3);
-	ComponentManager::addComponent<DestroyObject>(gameObject, "GameObejctA");
+	// ComponentManager::addComponent<DestroyObject>(gameObject, "GameObejctA");
+	ComponentManager::addComponent<ProgramEndObject>(gameObject);
+	ComponentManager::addComponent<GameObjectCreateObject>(gameObject, "GameObjectB");
 
 	std::cout << "プログラム開始" << std::endl;
 
@@ -39,13 +43,6 @@ void Game::run()
 			std::cout << "プログラム終了" << std::endl;
 			break;
 		}
-		
-		//else if (order == "clone") {
-		//	std::cout << "オブジェクトを複製します。\n" << "複製する数を入力してください" << std::endl;
-		//	int cloneCount;
-		//	std::cin >> cloneCount;
-		//	// CloneObject
-		//}
 
 		std::cout << "フレーム更新" << std::endl;
 		ComponentManager::updateComponentList();

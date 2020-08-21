@@ -22,7 +22,7 @@ public:
 	static void updateComponentList();
 	static void draw();
 	static void deleteComponent();
-	static void addComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject);
+	static void createComponents(const std::list<std::shared_ptr<Component>>& components, const std::shared_ptr<GameObject>& gameObject);
 
 private:
 	static std::list<std::shared_ptr<Component>> m_components;

@@ -15,10 +15,6 @@ void DestroyObject::update()
 	}
 }
 
-void DestroyObject::draw()
-{
-}
-
 std::shared_ptr<Component> DestroyObject::createClone()
 {
 	return std::make_shared<DestroyObject>(m_gameObjectName);
