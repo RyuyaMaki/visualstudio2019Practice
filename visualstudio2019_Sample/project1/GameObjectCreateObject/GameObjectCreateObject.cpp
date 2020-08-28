@@ -1,21 +1,23 @@
+#include <iostream>
+
 #include "../ComponentManager/ComponentManager.h"
 #include "../GameObjectManager/GameObjectManager.h"
 #include "../TestOutPut/TestOutPut.h"
 #include "GameObjectCreateObject.h"
 
-GameObjectCreateObject::GameObjectCreateObject(const std::string& name)
-	:m_name {name}
-{
-	auto gameObject = std::make_shared<GameObject>("name");
-	GameObjectManager::addGameObject(gameObject);
-	ComponentManager::createComponent<TestOutPut>(gameObject);
-}
-
 std::shared_ptr<Component> GameObjectCreateObject::createClone()
 {
-	return std::make_shared<GameObjectCreateObject>(m_name);
+	return std::make_shared<GameObjectCreateObject>();
 }
 
-void GameObjectCreateObject::input(const std::string& inputStr)
+void GameObjectCreateObject::input(const std::string& inputOrder)
 {
+	int a = inputOrder.find("add");
+
+	if (a == 0) {
+		std::string gameObjectName = inputOrder.substr(4);
+
+		auto gameObject = GameObjectManager::createGameObject(gameObjectName);
+		ComponentManager::createComponent<TestOutPut>(gameObject);
+	}
 }

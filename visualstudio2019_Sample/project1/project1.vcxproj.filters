@@ -42,10 +42,10 @@
     <ClCompile Include="DestroyObject\DestroyObject.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjectCreateObject\GameObjectCreateObject.cpp">
+    <ClCompile Include="GameEndComponent\gameEndComponent.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="GameEndComponent\gameEndComponent.cpp">
+    <ClCompile Include="GameObjectCreateObject\GameObjectCreateObject.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,10 +74,10 @@
     <ClInclude Include="DestroyObject\DestroyObject.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectCreateObject\GameObjectCreateObject.h">
+    <ClInclude Include="GameEndComponent\gameEndComponent.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="GameEndComponent\gameEndComponent.h">
+    <ClInclude Include="GameObjectCreateObject\GameObjectCreateObject.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
