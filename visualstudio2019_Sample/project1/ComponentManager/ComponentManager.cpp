@@ -2,6 +2,7 @@
 #include "../TestOutPut/TestOutPut.h"
 #include "../DestroyObject/DestroyObject.h"
 #include "../CloneObject/CloneObject.h"
+#include "../GameEndComponent/gameEndComponent.h"
 
 std::list<std::shared_ptr<Component>> ComponentManager::m_components;
 std::list<std::shared_ptr<Component>> ComponentManager::m_addComponentsToLater;
@@ -48,5 +49,12 @@ void ComponentManager::addComponents(const std::list<std::shared_ptr<Component>>
 		component->setGameObject(gameObject);
 		m_addComponentsToLater.push_back(component);
 		gameObject->addComponent(component);
+	}
+}
+
+void ComponentManager::sendInputOrder(const std::string& inputOrder)
+{
+	for (const auto& component : m_components) {
+		component->input(inputOrder);
 	}
 }

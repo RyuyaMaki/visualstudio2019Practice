@@ -45,7 +45,7 @@
     <ClCompile Include="GameObjectCreateObject\GameObjectCreateObject.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ProgramEndObject\ProgramEndObject.cpp">
+    <ClCompile Include="GameEndComponent\gameEndComponent.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,7 +77,7 @@
     <ClInclude Include="GameObjectCreateObject\GameObjectCreateObject.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ProgramEndObject\ProgramEndObject.h">
+    <ClInclude Include="GameEndComponent\gameEndComponent.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
