@@ -12,12 +12,18 @@ std::shared_ptr<Component> GameObjectCreateObject::createClone()
 
 void GameObjectCreateObject::input(const std::string& inputOrder)
 {
-	int a = inputOrder.find("add");
+	std::string addingConditions = "add";
+	auto isAddIncluded = inputOrder.find(addingConditions);
 
-	if (a == 0) {
-		std::string gameObjectName = inputOrder.substr(4);
+	if (isAddIncluded == 0U) {
+		if (inputOrder.size() <= addingConditions.size() + 1U) {
+			std::cout << "•¶Žš”‚ª•s³‚Å‚·" << std::endl;
+		}
+		else {
+			std::string gameObjectName = inputOrder.substr(addingConditions.size() + 1U);
 
-		auto gameObject = GameObjectManager::createGameObject(gameObjectName);
-		ComponentManager::createComponent<TestOutPut>(gameObject);
+			auto gameObject = GameObjectManager::createGameObject(gameObjectName);
+			ComponentManager::createComponent<TestOutPut>(gameObject);
+		}
 	}
 }
